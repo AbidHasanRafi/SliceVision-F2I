@@ -1,4 +1,4 @@
-# SlicVision-F2I: Network Slice KPIs to Visual Representation Dataset
+# SliceVision-F2I: Synthetic Visual Dataset for Network Slicing
 
 ![Dataset Overview](https://raw.githubusercontent.com/AbidHasanRafi/SliceVision-F2I/main/assets/header.png)
 
