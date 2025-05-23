@@ -156,7 +156,9 @@ SlicVision-F2I/
 - **[Abid Hasan Rafi](https://github.com/abidhasanrafi)**  
   Dataset creation, pattern design, KPI modeling
 - **[Mst. Fatematuj Johora](https://github.com/fatema-rifa)**
+  Dataset management, Data documentation
 - **[Pankaj Bhowmik](https://hstu.ac.bd/teacher/pankaj)**
+  Dataset evaluation, Process supervision
 
 ## Acknowledgments
 
