@@ -1,6 +1,6 @@
 # SlicVision-F2I: Network Slice KPIs to Visual Representation Dataset
 
-![Dataset Overview](docs/dataset_visualization.png)
+![Dataset Overview](https://raw.githubusercontent.com/AbidHasanRafi/SliceVision-F2I/main/assets/header.png)
 
 SlicVision-F2I is a novel dataset that transforms network slice Key Performance Indicators (KPIs) into multiple visual representation patterns, designed for machine learning and deep learning applications in network slicing management.
 
@@ -68,7 +68,7 @@ SlicVision-F2I/
 ## Visual Representation Patterns
 
 ### 1. Physically-Guided Patterns
-![Guided Patterns](docs/guided_examples.png) <!-- Add example images -->
+![Guided Patterns](https://raw.githubusercontent.com/AbidHasanRafi/SliceVision-F2I/main/assets/guided.png) 
 - Incorporates physical relationships between KPIs
 - Uses gaussian blobs, gradients, and wave patterns
 - Channel assignments:
@@ -77,19 +77,19 @@ SlicVision-F2I/
   - Blue: RSSI, SNR, CPU/Memory
 
 ### 2. Perlin Noise Patterns
-![Perlin Patterns](docs/perlin_examples.png)
+![Perlin Patterns](https://raw.githubusercontent.com/AbidHasanRafi/SliceVision-F2I/main/assets/perlin.png)
 - Generated using Perlin noise with KPI-parameterized settings
 - Each channel uses different noise parameters based on related KPIs
 - Provides organic, natural-looking patterns
 
 ### 3. Wallpaper Patterns
-![Wallpaper Patterns](docs/wallpaper_examples.png)
+![Wallpaper Patterns](https://raw.githubusercontent.com/AbidHasanRafi/SliceVision-F2I/main/assets/wallpaper.png)
 - Periodic and geometric patterns
 - Combines sinusoidal waves, grids, and gradients
 - Designed to highlight periodic behaviors in network traffic
 
 ### 4. Fractal Branching Patterns
-![Fractal Patterns](docs/fractal_examples.png)
+![Fractal Patterns](https://raw.githubusercontent.com/AbidHasanRafi/SliceVision-F2I/main/assets/fractal.png)
 - Recursive branching structures
 - Branch characteristics determined by KPIs
 - Represents network paths and connectivity
