@@ -260,8 +260,3 @@ Common issues:
   Dataset management, Data documentation
 - **[Pankaj Bhowmik](https://hstu.ac.bd/teacher/pankaj)**  
   Dataset evaluation, Process supervision
-
----
-
-**Maintained by the SlicVision Research Collective**  
-[![Follow on GitHub](https://img.shields.io/github/followers/abidhasanrafi?style=social)](https://github.com/abidhasanrafi)
