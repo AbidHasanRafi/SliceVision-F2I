@@ -137,6 +137,107 @@ SlicVision-F2I/
 |  | Noise Level | 5-15% |
 |  | Normalization | Min-Max [0,1] |
 
+## Dataset Testing Suite
+
+This `dataset-testing` folder contains the core analysis scripts for evaluating the SlicVision-F2I dataset using both traditional machine learning and deep learning approaches.
+
+### Files Overview
+
+```
+dataset-testing/
+├── traditional_ml_analysis.py  # Classical ML analysis script
+├── cnn_analysis.py            # CNN-based evaluation script
+└── requirements.txt           # Python dependencies
+```
+
+### 1. Traditional ML Analysis
+
+`traditional_ml_analysis.py` - Evaluates the raw KPI data using classical machine learning algorithms.
+
+### Features:
+- Tests three classifier types:
+  - Random Forest
+  - Support Vector Machine (SVM)
+  - XGBoost
+- Generates:
+  - Feature importance plots
+  - Correlation matrices
+  - Classification report
+
+#### Usage:
+```bash
+python traditional_ml_analysis.py
+```
+
+### 2. CNN Analysis
+
+`cnn_analysis.py` - Evaluates all four visual pattern types using convolutional neural networks.
+
+### Features:
+- Tests four pattern representations:
+  - Guided patterns
+  - Perlin noise patterns
+  - Wallpaper patterns
+  - Fractal patterns
+- Generates:
+  - Training history plots
+  - Model accuracy comparisons
+  - Classification reports
+
+#### Usage:
+```bash
+python cnn_analysis.py
+```
+
+### Requirements
+
+Install dependencies with:
+```bash
+pip install -r requirements.txt
+```
+
+`requirements.txt` contents:
+```
+numpy
+pandas
+scikit-learn
+xgboost
+tensorflow
+matplotlib
+seaborn
+```
+
+### Running the Full Test Suite
+
+1. First run traditional ML analysis:
+```bash
+python traditional_ml_analysis.py
+```
+
+2. Then run CNN evaluation:
+```bash
+python cnn_analysis.py
+```
+
+### Adding New Models
+
+To extend this testing suite:
+
+1. For traditional ML:
+   - Add new classifiers to `traditional_ml_analysis.py`
+   - Append evaluation metrics to existing JSON output
+
+2. For CNN models:
+   - Create new architecture in `cnn_analysis.py`
+   - Follow the existing pattern comparison framework
+
+### Troubleshooting
+
+Common issues:
+- **Shape mismatches**: Ensure numpy files match CSV metadata length
+- **Memory errors**: Reduce batch size in CNN training
+- **NaN values**: Confirm all KPIs are properly imputed in the CSV
+
 ## Citation
 
 ```bibtex
@@ -155,18 +256,10 @@ SlicVision-F2I/
 
 - **[Abid Hasan Rafi](https://github.com/abidhasanrafi)**  
   Dataset creation, pattern design, KPI modeling
-- **[Mst. Fatematuj Johora](https://github.com/fatema-rifa)**
+- **[Mst. Fatematuj Johora](https://github.com/fatema-rifa)**  
   Dataset management, Data documentation
-- **[Pankaj Bhowmik](https://hstu.ac.bd/teacher/pankaj)**
+- **[Pankaj Bhowmik](https://hstu.ac.bd/teacher/pankaj)**  
   Dataset evaluation, Process supervision
-
-## Acknowledgments
-
-This work builds upon research from:
-
-- 3GPP Network Slicing Specifications
-- ITU-T Recommendations on QoS monitoring
-- IEEE papers on visual network analytics
 
 ---
 
