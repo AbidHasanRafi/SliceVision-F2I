@@ -2,176 +2,171 @@
 
 ![Dataset Overview](https://raw.githubusercontent.com/AbidHasanRafi/SliceVision-F2I/main/assets/header.png)
 
-SlicVision-F2I is a novel dataset that transforms network slice Key Performance Indicators (KPIs) into multiple visual representation patterns, designed for machine learning and deep learning applications in network slicing management.
-
-## Table of Contents
-- [Dataset Description](#dataset-description)
-- [Key Features](#key-features)
-- [Dataset Structure](#dataset-structure)
-- [Visual Representation Patterns](#visual-representation-patterns)
-- [Getting Started](#getting-started)
-- [Usage Examples](#usage-examples)
-- [Dataset Statistics](#dataset-statistics)
-- [License](#license)
-- [Citation](#citation)
-- [Contributing](#contributing)
-- [Acknowledgments](#acknowledgments)
+SlicVision-F2I is a novel multimodal dataset that transforms network slice Key Performance Indicators (KPIs) into multiple visual representation patterns, designed to bridge telecommunications and computer vision for next-generation network management systems.
 
 ## Dataset Description
 
-SlicVision-F2I contains 30,000 samples of network slice KPIs converted into four distinct visual representation patterns. Each sample represents one of three network slice types:
+SlicVision-F2I contains 30,000 samples of network slice KPIs converted into four distinct visual representation patterns. Each sample represents one of three primary 5G network slice types:
 
-1. **eMBB (Enhanced Mobile Broadband)**
-2. **URLLC (Ultra-Reliable Low-Latency Communications)**
-3. **mIoT (Massive Internet of Things)**
+1. **eMBB (Enhanced Mobile Broadband)**: High-throughput applications
+2. **URLLC (Ultra-Reliable Low-Latency Communications)**: Mission-critical services
+3. **mIoT (Massive Internet of Things)**: Large-scale sensor networks
 
-The dataset bridges the gap between network telemetry data and computer vision approaches by providing multiple visual representations of the same underlying KPI data.
+The dataset enables novel approaches to network management by providing multiple visual representations of identical underlying KPI data, facilitating multimodal learning and cross-pattern analysis.
 
 ## Key Features
 
-- **Multi-pattern representations**: Each KPI sample is converted into four distinct visual patterns
-- **Comprehensive KPI coverage**: 10 key network performance metrics
-- **Realistic simulations**: Includes noise, missing values, and class imbalance
-- **High-quality preprocessing**: Careful normalization and missing value handling
-- **Ready-to-use**: Pre-generated NumPy arrays for easy integration with ML pipelines
+- **Multi-pattern representations**: Four distinct visual encodings per sample
+- **Comprehensive KPI coverage**: 10 key network performance metrics with realistic correlations
+- **Real-world characteristics**:
+  - Simulated measurement noise (5-15%)
+  - Missing values (~5% random missingness)
+  - Natural class imbalance (eMBB:URLLC:mIoT = 2:1:7 ratio)
+- **Production-ready**:
+  - Pre-normalized values (0-1 range)
+  - Missing value imputation (median-based)
+  - Consistent 16×16 RGB image format
+
+## Potential Use Cases
+
+### Network Management Applications
+- **Anomaly Detection**: Train vision-based models to identify slice performance degradation
+- **Slice Classification**: Multi-class recognition of slice types from KPI patterns
+- **Quality Prediction**: Regression models for QoE metrics from visual representations
+
+### Machine Learning Research
+- **Multimodal Learning**: Study cross-pattern relationships and ensemble methods
+- **Data Augmentation**: Test augmentation strategies across different representations
+- **Explainable AI**: Visual interpretability of network performance decisions
+
+### Telecommunications Education
+- **Teaching Resource**: Visual demonstrations of network performance concepts
+- **Benchmarking**: Standard dataset for comparing network AI approaches
+- **Prototyping**: Rapid development of visual network analytics tools
 
 ## Dataset Structure
 
-The dataset is organized as follows:
-
 ```
 SlicVision-F2I/
-├── numeric_data.csv            # Raw KPI measurements and labels
-├── guided_patterns.npy         # Physically-guided pattern representations
-├── perlin_patterns.npy         # Perlin noise-based patterns
-├── wallpaper_patterns.npy      # Wallpaper-style patterns
-└── fractal_patterns.npy        # Fractal branching patterns
+├── numeric_data.csv            # Raw KPI measurements and slice labels
+├── guided_patterns.npy         # Physics-inspired representations
+├── perlin_patterns.npy         # Procedural noise-based patterns
+├── wallpaper_patterns.npy      # Structural/geometric patterns
+└── fractal_patterns.npy        # Recursive branching patterns
 ```
 
-### Data Fields in numeric_data.csv
+### Data Fields Specification
 
-| Field | Description | Range/Values |
-|-------|------------|--------------|
-| slice_type | Network slice type | eMBB, URLLC, mIoT |
-| delay | Packet delay in seconds | 0-0.1s |
-| jitter | Delay variation in seconds | 0-0.05s |
-| loss | Packet loss rate | 0-0.1 |
-| throughput | Data throughput in Mbps | 0-300Mbps |
-| retransmissions | Packet retransmission rate | 0-0.1 |
-| packet_discard_rate | Discarded packets rate | 0-0.1 |
-| rssi | Received Signal Strength Indicator | -100 to -30 dBm |
-| snr | Signal-to-Noise Ratio | 0-40 dB |
-| cpu_util | CPU utilization percentage | 0-100% |
-| mem_util | Memory utilization percentage | 0-100% |
-| label | Encoded class label | 0 (eMBB), 1 (URLLC), 2 (mIoT) |
+| Field | Description | Normalized Range | Physical Range |
+|-------|------------|------------------|----------------|
+| slice_type | Slice category | - | {eMBB, URLLC, mIoT} |
+| delay | End-to-end latency | [0,1] | 0-100ms |
+| jitter | Latency variation | [0,1] | 0-50ms |
+| loss | Packet loss rate | [0,1] | 0-10% |
+| throughput | Data rate | [0,1] | 0-300Mbps |
+| retransmissions | Retry rate | [0,1] | 0-10% |
+| packet_discard_rate | Drop rate | [0,1] | 0-10% |
+| rssi | Signal strength | [0,1] | -100dBm to -30dBm |
+| snr | Signal quality | [0,1] | 0-40dB |
+| cpu_util | Processor usage | [0,1] | 0-100% |
+| mem_util | Memory usage | [0,1] | 0-100% |
+| label | Class encoding | {0,1,2} | - |
 
 ## Visual Representation Patterns
 
 ### 1. Physically-Guided Patterns
 ![Guided Patterns](https://raw.githubusercontent.com/AbidHasanRafi/SliceVision-F2I/main/assets/guided.png) 
-- Incorporates physical relationships between KPIs
-- Uses gaussian blobs, gradients, and wave patterns
-- Channel assignments:
-  - Red: Delay, jitter, loss
-  - Green: Throughput, retransmissions
-  - Blue: RSSI, SNR, CPU/Memory
+
+**Design Philosophy**: Embeds physical network relationships into spatial patterns
+
+**Key Characteristics**:
+- Gaussian blobs represent concentrated performance metrics
+- Wave patterns show periodic behaviors
+- Color channels encode related KPI groups:
+  - 🔴 Red: Latency metrics (delay/jitter/loss)
+  - 🟢 Green: Throughput metrics
+  - 🔵 Blue: System health (RSSI/SNR/resource usage)
 
 ### 2. Perlin Noise Patterns
 ![Perlin Patterns](https://raw.githubusercontent.com/AbidHasanRafi/SliceVision-F2I/main/assets/perlin.png)
-- Generated using Perlin noise with KPI-parameterized settings
-- Each channel uses different noise parameters based on related KPIs
-- Provides organic, natural-looking patterns
+
+**Design Philosophy**: Organic patterns reflecting natural network variability
+
+**Key Characteristics**:
+- Noise parameters dynamically adjust to KPI values
+- Each channel has unique generation parameters:
+  - Red: Octaves scaled by loss rate
+  - Green: Persistence set by throughput
+  - Blue: Lacunarity adjusted by SNR
 
 ### 3. Wallpaper Patterns
 ![Wallpaper Patterns](https://raw.githubusercontent.com/AbidHasanRafi/SliceVision-F2I/main/assets/wallpaper.png)
-- Periodic and geometric patterns
-- Combines sinusoidal waves, grids, and gradients
-- Designed to highlight periodic behaviors in network traffic
+
+**Design Philosophy**: Structural representations of network periodicities
+
+**Key Characteristics**:
+- Combines multiple geometric primitives:
+  - Stripes → Throughput levels
+  - Grids → Packet loss patterns
+  - Radial gradients → Signal strength
+- Parameters adapt to slice type characteristics
 
 ### 4. Fractal Branching Patterns
 ![Fractal Patterns](https://raw.githubusercontent.com/AbidHasanRafi/SliceVision-F2I/main/assets/fractal.png)
-- Recursive branching structures
-- Branch characteristics determined by KPIs
-- Represents network paths and connectivity
 
-## Getting Started
+**Design Philosophy**: Tree structures modeling network paths
 
-### Loading the Dataset
-```python
-import numpy as np
-import pandas as pd
-
-# Load numeric data
-df = pd.read_csv('numeric_data.csv')
-
-# Load pattern data (example for guided patterns)
-guided_patterns = np.load('guided_patterns.npy')
-```
-
-## Usage Examples
-Training a Simple Classifier
-```python
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-
-# Prepare data
-X = guided_patterns.reshape(len(guided_patterns), -1)  # Flatten images
-y = df['label'].values
-
-# Split dataset
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-
-# Train classifier
-clf = RandomForestClassifier()
-clf.fit(X_train, y_train)
-
-# Evaluate
-accuracy = clf.score(X_test, y_test)
-print(f"Accuracy: {accuracy:.2f}")
-```
+**Key Characteristics**:
+- Branching complexity scales with traffic volume
+- Leaf density reflects packet success rates
+- Trunk stability indicates connection reliability
+- Color gradients show resource utilization
 
 ## Dataset Statistics
 
-| Statistic | Value |
-|-----------|-------|
-| Total samples | 30,000 |
-| eMBB samples | 6,000 (20%) |
-| URLLC samples | 3,000 (10%) |
-| mIoT samples | 21,000 (70%) |
-| Image size | 16x16 pixels |
-| Channels per image | 3 (RGB) |
-| Missing values | ~5% (imputed) |
-
-The dataset intentionally follows a realistic class imbalance reflecting expected slice distribution in real networks.
-
-## License
-
-This dataset is released under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+| Category | Metric | Value |
+|----------|--------|-------|
+| **Samples** | Total | 30,000 |
+|  | eMBB | 6,000 (20%) |
+|  | URLLC | 3,000 (10%) |
+|  | mIoT | 21,000 (70%) |
+| **Patterns** | Resolution | 16×16px |
+|  | Color Channels | 3 (RGB) |
+|  | Size on Disk | ~550MB |
+| **Quality** | Missing Values | 4.8% |
+|  | Noise Level | 5-15% |
+|  | Normalization | Min-Max [0,1] |
 
 ## Citation
 
-If you use SlicVision-F2I in your research, please cite it as:
-
 ```bibtex
-@dataset{slicvision_f2i_2023,
-  author = {Your Name},
-  title = {SlicVision-F2I: Network Slice KPIs to Visual Representation Dataset},
+@dataset{slicvision_f2i_2025,
+  title = {SliceVision-F2I: Synthetic Visual Dataset for Network Slicing},
+  author = {Md. Abid Hasan Rafi, Mst. Fatematuj Johora, and Pankaj Bhowmik},
   year = {2025},
+  version = {1.1},
   publisher = {GitHub},
-  version = {1.0},
-  url = {https://github.com/abidhasanrafi/slicvision-f2i}
+  url = {https://github.com/abidhasanrafi/slicvision-f2i},
+  note = {Reserved DOI: 10.17632/68xp3vszsz.1}
 }
 ```
 
-## Contributing
+## Core Contributors
 
-Contributions to improve the dataset are welcome! Please open an issue or submit a pull request for:
-- Additional visual representations
-- Improved KPI simulations
-- Documentation enhancements
+- **[Abid Hasan Rafi](https://github.com/abidhasanrafi)**  
+  Dataset creation, pattern design, KPI modeling
+- **[Mst. Fatematuj Johora](https://github.com/fatema-rifa)**
+- **[Pankaj Bhowmik](https://hstu.ac.bd/teacher/pankaj)**
 
 ## Acknowledgments
 
-- Inspired by prior work in network slicing and visual representation learning
-- Thanks to contributors who helped with testing and validation
-- Built with Python scientific computing ecosystem
+This work builds upon research from:
+
+- 3GPP Network Slicing Specifications
+- ITU-T Recommendations on QoS monitoring
+- IEEE papers on visual network analytics
+
+---
+
+**Maintained by the SlicVision Research Collective**  
+[![Follow on GitHub](https://img.shields.io/github/followers/abidhasanrafi?style=social)](https://github.com/abidhasanrafi)
