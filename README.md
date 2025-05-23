@@ -260,3 +260,6 @@ Common issues:
   Dataset management, Data documentation
 - **[Pankaj Bhowmik](https://hstu.ac.bd/teacher/pankaj)**  
   Dataset evaluation, Process supervision
+
+## Disclaimer
+Any sort of use, reproduction, or distribution of the content in this repository without proper citation or reference to the author is strictly prohibited. Please respect the intellectual property and give appropriate credit when using or referencing any part of this work.
