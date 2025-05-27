@@ -241,14 +241,14 @@ Common issues:
 ## Citation
 
 ```bibtex
-@dataset{slicvision_f2i_2025,
-  title = {SliceVision-F2I: Synthetic Visual Dataset for Network Slicing},
-  author = {Md. Abid Hasan Rafi, Mst. Fatematuj Johora, and Pankaj Bhowmik},
-  year = {2025},
-  version = {1.1},
-  publisher = {GitHub},
-  url = {https://github.com/abidhasanrafi/slicvision-f2i},
-  note = {Reserved DOI: 10.17632/68xp3vszsz.1}
+@misc{rafi2025slicevision,
+  author       = {Rafi, Abid Hasan and Johora, Mst. Fatematuj and Bhowmik, Pankaj},
+  title        = {{SliceVision-F2I: Synthetic Visual Dataset for Network Slicing}},
+  year         = {2025},
+  publisher    = {Mendeley Data},
+  version      = {V1},
+  doi          = {10.17632/68xp3vszsz.1},
+  url          = {https://doi.org/10.17632/68xp3vszsz.1}
 }
 ```
 
